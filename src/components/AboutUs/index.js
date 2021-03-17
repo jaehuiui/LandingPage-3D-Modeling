@@ -13,7 +13,7 @@ const members = [
   { name: "Park Soojin", profile: PARK },
 ];
 
-function Team() {
+function AboutUs() {
   const classes = teamStyles();
 
   return (
@@ -68,4 +68,4 @@ function Team() {
   );
 }
 
-export default Team;
+export default AboutUs;

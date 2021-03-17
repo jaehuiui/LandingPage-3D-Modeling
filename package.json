@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "drei": "^2.2.21",
     "material-ui-image": "^3.3.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -15,6 +16,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-three-fiber": "^5.3.19",
+    "three": "^0.126.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
