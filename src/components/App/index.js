@@ -3,10 +3,7 @@ import { CssBaseline, Container, Grid } from "@material-ui/core";
 
 import Header from "../Header";
 import AboutUs from "../AboutUs";
-import Manager from "../Team/Manager";
-import Front from "../Team/Front";
-import Back from "../Team/Back";
-import AI from "../Team/AI";
+import Team from "../Team";
 import Footer from "../Footer";
 
 function App() {
@@ -15,10 +12,7 @@ function App() {
       <CssBaseline />
       <Header />
       <AboutUs />
-      <Manager />
-      <Front />
-      <Back />
-      <AI />
+      <Team />
       <Footer />
     </React.Fragment>
   );
