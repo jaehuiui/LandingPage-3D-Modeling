@@ -1,7 +1,8 @@
-import { lightPreset } from "./preset";
+import { lightPreset, lightPresetIndex } from "../Preset/lightPreset";
+
+var index = lightPresetIndex;
 
 export function KeyLight() {
-  var index = 0;
   return (
     <rectAreaLight
       width={3}
@@ -17,7 +18,6 @@ export function KeyLight() {
 }
 
 export function FillLight() {
-  var index = 0;
   return (
     <rectAreaLight
       width={3}
@@ -32,7 +32,6 @@ export function FillLight() {
   );
 }
 export function RimLight() {
-  var index = 0;
   return (
     <rectAreaLight
       width={2}
