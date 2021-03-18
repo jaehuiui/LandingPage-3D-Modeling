@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Toolbar, Link, Button } from "@material-ui/core";
 import { navigationStyles } from "./style";
-import WeebutLogo from "../../image/logo/Weebut-dark-192.png";
+import WeebutLogo from "../../assets/logo/Weebut-dark-192.png";
 
 function Navigation(props) {
   const classes = navigationStyles();
