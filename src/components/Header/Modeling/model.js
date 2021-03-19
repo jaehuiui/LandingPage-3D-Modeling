@@ -1,6 +1,13 @@
 import React, { Suspense } from "react";
 import Office from "./office";
-import { KeyLight, FillLight, SunsetLight, DoomLight } from "./light";
+import {
+  KeyLight,
+  NormalLight,
+  SunsetLight,
+  DoomLight1,
+  DoomLight2,
+  FillLight,
+} from "./light";
 import { Canvas } from "react-three-fiber";
 import { softShadows } from "@react-three/drei";
 
@@ -28,9 +35,12 @@ export function Model() {
       shadowMap
     >
       {/* <fog attach="fog" args={["white", 0, 80]} /> */}
-      <KeyLight />
+      {/* <KeyLight />
       <SunsetLight />
-      <DoomLight />
+      <DoomLight1 />
+      <DoomLight2 />
+      <NormalLight /> */}
+      <FillLight />
       <Suspense fallback={null}>
         <group position={[4.2, -0.5, 0]}>
           <Plane />

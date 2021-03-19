@@ -4,29 +4,45 @@ import { lightPreset, lightPresetIndex } from "../Preset/lightPreset";
 
 var index = lightPresetIndex;
 
-function KeyLightRotating(ref, time) {
-  ref.current.position.x = -3.5 * Math.cos(time / 6) + 11.5;
-  ref.current.position.y = -3.5 * Math.cos(time / 6) + 12.5;
-  ref.current.position.z = -3.5 * Math.cos(time / 6) + 8.5;
+function LightRotating(ref, time) {
+  ref.current.position.x = -12 * Math.sin(time / 20) + 15;
+  ref.current.position.y = 6 * Math.abs(Math.sin(time / 10)) + 9;
+  ref.current.position.z = 14 * Math.sin(time / 20) - 2;
 }
 
 function KeyLightIntensity(ref, time) {
-  ref.current.intensity = -0.5 * Math.cos(time / 6) + 0.4;
+  ref.current.intensity = 0.25 * Math.sin(time / 10) + 0.1;
 }
 
-function DoomLightIntensity(ref, time) {
+function DoomLight1Intensity(ref, time) {
   if (time >= 0 * Math.PI && time < 3 * Math.PI) {
-    ref.current.intensity = -0.5 * Math.cos(time / 6) + 0.65;
-  } else if (time >= 10 * Math.PI && time < 12 * Math.PI) {
-    ref.current.intensity = -0.5 * Math.cos(time / 6) + 0.65;
+    ref.current.intensity = 0.3 * Math.cos(time / 6);
+  } else {
+    ref.current.intensity = 0;
+  }
+}
+
+function DoomLight2Intensity(ref, time) {
+  if (time >= 12 * Math.PI && time < 20 * Math.PI) {
+    ref.current.intensity = 0.3 * Math.sin((time - 12 * Math.PI) / 16);
+  } else {
+    ref.current.intensity = 0;
+  }
+}
+
+function NormalLightIntensity(ref, time) {
+  if (time >= 2 * Math.PI && time < 7 * Math.PI) {
+    ref.current.intensity = 0.3 * Math.sin((time - 2 * Math.PI) / 5);
   } else {
     ref.current.intensity = 0;
   }
 }
 
 function SunsetLightIntensity(ref, time) {
-  if (time >= 8 * Math.PI && time < 10 * Math.PI) {
-    ref.current.intensity = 0.5 * Math.sin(time / 2);
+  if (time >= 6 * Math.PI && time < 8 * Math.PI) {
+    ref.current.intensity = 0.3 * Math.sin((time - 6 * Math.PI) / 4);
+  } else if (time >= 8 * Math.PI && time < 10 * Math.PI) {
+    ref.current.intensity = 0.3 * Math.cos((time - 8 * Math.PI) / 4);
   } else {
     ref.current.intensity = 0;
   }
@@ -36,8 +52,8 @@ export function KeyLight() {
   const _keylight = useRef();
 
   useFrame((state) => {
-    var t = state.clock.getElapsedTime() % (12 * Math.PI);
-    KeyLightRotating(_keylight, t);
+    const t = state.clock.getElapsedTime() % (20 * Math.PI);
+    LightRotating(_keylight, t);
     KeyLightIntensity(_keylight, t);
   });
 
@@ -58,8 +74,8 @@ export function SunsetLight() {
   const _Sunsetlight = useRef();
 
   useFrame((state) => {
-    const t = state.clock.getElapsedTime() % (12 * Math.PI);
-    KeyLightRotating(_Sunsetlight, t);
+    const t = state.clock.getElapsedTime() % (20 * Math.PI);
+    LightRotating(_Sunsetlight, t);
     SunsetLightIntensity(_Sunsetlight, t);
   });
 
@@ -73,20 +89,58 @@ export function SunsetLight() {
   );
 }
 
-export function DoomLight() {
-  const _Doomlight = useRef();
+export function DoomLight1() {
+  const _Doomlight1 = useRef();
 
   useFrame((state) => {
-    const t = state.clock.getElapsedTime() % (12 * Math.PI);
-    KeyLightRotating(_Doomlight, t);
-    DoomLightIntensity(_Doomlight, t);
+    const t = state.clock.getElapsedTime() % (20 * Math.PI);
+    LightRotating(_Doomlight1, t);
+    DoomLight1Intensity(_Doomlight1, t);
   });
 
   return (
     <pointLight
-      ref={_Doomlight}
+      ref={_Doomlight1}
       position={[8, 10, 12]}
       color="#97C2E3"
+      decay={2}
+    />
+  );
+}
+
+export function DoomLight2() {
+  const _Doomlight2 = useRef();
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime() % (20 * Math.PI);
+    LightRotating(_Doomlight2, t);
+    DoomLight2Intensity(_Doomlight2, t);
+  });
+
+  return (
+    <pointLight
+      ref={_Doomlight2}
+      position={[8, 10, 12]}
+      color="#97C2E3"
+      decay={2}
+    />
+  );
+}
+
+export function NormalLight() {
+  const _Normallight = useRef();
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime() % (20 * Math.PI);
+    LightRotating(_Normallight, t);
+    NormalLightIntensity(_Normallight, t);
+  });
+
+  return (
+    <pointLight
+      ref={_Normallight}
+      position={[8, 10, 12]}
+      color="#E8F0F6"
       decay={2}
     />
   );
@@ -95,7 +149,7 @@ export function DoomLight() {
 export function FillLight() {
   return (
     <spotLight
-      position={[5.5, 20, 0.5]}
+      position={[8, 10, 12]}
       intensity={lightPreset[index].fillBr}
       color={lightPreset[index].fillCr}
     />

@@ -20,7 +20,7 @@ export const lightPreset = [
   {
     keyBr: 0.6,
     keyCr: "#ffffff",
-    fillBr: 0.1,
+    fillBr: 0.8,
     fillCr: "#ffffff",
     rimBr: 1.5,
     rimCr: "#ffffff",
