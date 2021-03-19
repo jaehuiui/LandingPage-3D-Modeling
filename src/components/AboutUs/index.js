@@ -19,10 +19,9 @@ function AboutUs() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <div className="aboutTeam">
-        <Container maxWidth="lg" className={classes.root}>
-          <Container maxWidth="lg" className={classes.content}>
-            <Container maxWidth="lg" className={classes.description}>
+        <div className={classes.root}>
+          <div  className={classes.content}>
+            <div className={classes.description}>
               <Typography
                 component="h3"
                 variant="h4"
@@ -35,7 +34,7 @@ function AboutUs() {
                 2020.08~ : KAIKAI / KAIST, Daejeon <br /> 2021.01~ : Weebut /
                 Seocho, Seoul
               </Typography>
-            </Container>
+            </div>
             <Container maxWidth="lg" className={classes.members}>
               {members.map((member) => (
                 <Grid
@@ -61,8 +60,7 @@ function AboutUs() {
                 </Grid>
               ))}
             </Container>
-          </Container>
-        </Container>
+          </div>
       </div>
     </React.Fragment>
   );

@@ -14,6 +14,24 @@ function KeyLightIntensity(ref, time) {
   ref.current.intensity = 0.25 * Math.sin(time / 10) + 0.15;
 }
 
+function SunsetLightIntensity(ref, time) {
+  if (time >= 6 * Math.PI && time < 8 * Math.PI) {
+    ref.current.intensity = 0.25 * Math.sin((time - 6 * Math.PI) / 4);
+  } else if (time >= 8 * Math.PI && time < 10 * Math.PI) {
+    ref.current.intensity = 0.25 * Math.cos((time - 8 * Math.PI) / 4);
+  } else {
+    ref.current.intensity = 0;
+  }
+}
+
+function NormalLightIntensity(ref, time) {
+  if (time >= 2 * Math.PI && time < 7 * Math.PI) {
+    ref.current.intensity = 0.3 * Math.sin((time - 2 * Math.PI) / 5);
+  } else {
+    ref.current.intensity = 0;
+  }
+}
+
 function DoomLight1Intensity(ref, time) {
   if (time >= 0 * Math.PI && time < 3 * Math.PI) {
     ref.current.intensity = 0.2 * Math.cos(time / 6);
@@ -28,28 +46,6 @@ function DoomLight2Intensity(ref, time) {
   } else {
     ref.current.intensity = 0;
   }
-}
-
-function NormalLightIntensity(ref, time) {
-  if (time >= 2 * Math.PI && time < 7 * Math.PI) {
-    ref.current.intensity = 0.3 * Math.sin((time - 2 * Math.PI) / 5);
-  } else {
-    ref.current.intensity = 0;
-  }
-}
-
-function SunsetLightIntensity(ref, time) {
-  if (time >= 6 * Math.PI && time < 8 * Math.PI) {
-    ref.current.intensity = 0.25 * Math.sin((time - 6 * Math.PI) / 4);
-  } else if (time >= 8 * Math.PI && time < 10 * Math.PI) {
-    ref.current.intensity = 0.25 * Math.cos((time - 8 * Math.PI) / 4);
-  } else {
-    ref.current.intensity = 0;
-  }
-}
-
-function RoomRotating(ref, time) {
-  ref.current.rotation.y = (-1 * Math.cos(time / 6)) / 10;
 }
 
 export function KeyLight() {
@@ -88,6 +84,28 @@ export function SunsetLight() {
       ref={_Sunsetlight}
       position={[8, 10, 12]}
       color="#ED8463"
+      decay={2}
+      shadow-mapSize-height={4096}
+      shadow-mapSize-width={4096}
+      castShadow
+    />
+  );
+}
+
+export function NormalLight() {
+  const _Normallight = useRef();
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime() % (20 * Math.PI);
+    LightRotating(_Normallight, t);
+    NormalLightIntensity(_Normallight, t);
+  });
+
+  return (
+    <pointLight
+      ref={_Normallight}
+      position={[8, 10, 12]}
+      color="#E8F0F6"
       decay={2}
       shadow-mapSize-height={4096}
       shadow-mapSize-width={4096}
@@ -140,28 +158,6 @@ export function DoomLight2() {
   );
 }
 
-export function NormalLight() {
-  const _Normallight = useRef();
-
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime() % (20 * Math.PI);
-    LightRotating(_Normallight, t);
-    NormalLightIntensity(_Normallight, t);
-  });
-
-  return (
-    <pointLight
-      ref={_Normallight}
-      position={[8, 10, 12]}
-      color="#E8F0F6"
-      decay={2}
-      shadow-mapSize-height={4096}
-      shadow-mapSize-width={4096}
-      castShadow
-    />
-  );
-}
-
 export function FillLight() {
   return (
     <spotLight
@@ -171,24 +167,20 @@ export function FillLight() {
     />
   );
 }
+
 export function RimLight() {
   const _RimLight = useRef();
-
-  // useFrame((state) => {
-  //   const t = state.clock.getElapsedTime();
-  //   RoomRotating(_RimLight, t);
-  // });
 
   return (
     <rectAreaLight
       ref={_RimLight}
       width={0.8}
       height={1.5}
-      intensity={1}
+      intensity={2}
       color={"#F5F5E1"}
       position={[1.08, 0.9, 0.3]}
-      // lookAt={[8, 0, 0.5]}
       penumbra={1}
+      lookAt={[4.2, 0.5, 0.3]}
       rotation={[0, Math.PI / 2, 0]}
       castShadow
     />

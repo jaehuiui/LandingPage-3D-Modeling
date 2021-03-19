@@ -63,8 +63,8 @@ export const colorPreset = [
     trashcan: "#6F6F6F",
     chair: "#6F6F6F",
     desktop: "#FFFFFF",
-    wall_right: "#FFFFFF",
-    wall_left: "#FFFFFF",
+    wall_right: "#EEEEEE",
+    wall_left: "#F4F2E6",
     keyboard: "#FFFFFF",
     cube1: "#D4D4D4",
     cube2: "#FFFFFF",
@@ -74,6 +74,6 @@ export const colorPreset = [
     hover3: "#D8D4B9",
     hover4: "#D8C1B9",
     logo: "#FFFFFF",
-    tissue: "#FFFFFF",
+    tissue: "#DDEFF7",
   },
 ];
