@@ -1,31 +1,42 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Office from "./office";
-/*
-React Three Fiber
-: Html5 Canvas + WebGL 을 통해 3D 렌더링을 할 수 있도록 하는 모듈
-*/
-export function GroundPlane() {
-  return (
-    <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
-      <planeBufferGeometry attach="geometry" args={[500, 500]} />
-      <meshStandardMaterial attach="material" color="white" />
-    </mesh>
-  );
-}
+import { KeyLight, FillLight, SunsetLight, DoomLight } from "./light";
+import { Canvas } from "react-three-fiber";
+import { softShadows } from "@react-three/drei";
 
-export function BackDrop() {
+softShadows();
+
+function Plane(props) {
   return (
-    <mesh receiveShadow position={[0, -1, -4]}>
-      <planeBufferGeometry attach="geometry" args={[500, 500]} />
-      <meshStandardMaterial attach="material" color="white" />
+    <mesh
+      receiveShadow
+      rotation-x={-Math.PI / 2}
+      {...props}
+      position={[0, 0, 0]}
+    >
+      <planeBufferGeometry attach="geometry" args={[50, 50]} />
+      <shadowMaterial attach="material" transparent opacity={0.4} />
     </mesh>
   );
 }
 
 export function Model() {
   return (
-    <group position={[-0.3, -0.7, 0]}>
-      <Office />
-    </group>
+    <Canvas
+      camera={{ zoom: 1, fov: 25, position: [14.3, 2.5, 8] }}
+      colorManagement
+      shadowMap
+    >
+      {/* <fog attach="fog" args={["white", 0, 80]} /> */}
+      <KeyLight />
+      <SunsetLight />
+      <DoomLight />
+      <Suspense fallback={null}>
+        <group position={[4.2, -0.5, 0]}>
+          <Plane />
+          <Office />
+        </group>
+      </Suspense>
+    </Canvas>
   );
 }

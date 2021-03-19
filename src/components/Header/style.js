@@ -3,12 +3,12 @@ import { makeStyles } from "@material-ui/core";
 export const headerStyles = makeStyles((theme) => ({
   container: {
     height: "100vh",
+    width: "100vw",
     display: "flex",
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    backgroundColor: "#121212",
-    padding: "20px",
+    backgroundColor: "#F3EEE5",
   },
   headerContainer: {
     flex: 1,
@@ -42,6 +42,6 @@ export const headerStyles = makeStyles((theme) => ({
     width: 130,
   },
   teamName: {
-    color: "#FFFFFF",
+    color: "#000000",
   },
 }));

@@ -7,14 +7,14 @@ import { useGLTF } from "@react-three/drei";
 import { colorPreset, colorPresetIndex } from "../Preset/colorPreset";
 
 function RoomRotating(ref, time) {
-  ref.current.rotation.y = Math.cos(time / 6) / 10;
+  ref.current.rotation.y = (-1 * Math.cos(time / 6)) / 10;
 }
 
 function CubeHovering(ref, time) {
   ref.current.rotation.z = -0.2 - (1 + Math.sin(time / 1.5)) / 10;
   ref.current.rotation.x = Math.cos(time / 4) / 8;
   ref.current.rotation.y = Math.sin(time / 4) / 8;
-  ref.current.position.y = (1 + Math.sin(time / 1.5)) / 10 - 0.1;
+  ref.current.position.y = (1 + Math.sin(time / 1.5)) / 10 + 0.3;
 }
 
 function Rotating(ref, time) {
@@ -42,10 +42,16 @@ export default function Office() {
     <group ref={group} dispose={null} scale={[1.1, 1.1, 1.1]}>
       {/* Floor */}
       <group dispose={null}>
-        <mesh geometry={nodes.bottom_1.geometry}>
+        <mesh
+          geometry={nodes.bottom_1.geometry}
+          scale={[1.05, 1.05, 1.05]}
+          castShadow
+          receiveShadow
+        >
+          <shadowMaterial attach="material" transparent opacity={0.0} />
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].first}
+            color={colorPreset[theme].floor}
           />
         </mesh>
       </group>
@@ -55,10 +61,11 @@ export default function Office() {
           geometry={nodes.pinter_1.geometry}
           position={[0.45, 1.17, -1.11]}
           scale={[0.37, 0.35, 0.43]}
+          castShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].seventh}
+            color={colorPreset[theme].printer}
             metalness={0.2}
             roughness={0.6}
           />
@@ -70,10 +77,12 @@ export default function Office() {
           geometry={nodes.coputer_2.geometry}
           position={[0.36, -0.33, -0.26]}
           scale={[0.56, 0.94, 0.15]}
+          castShadow
+          receiveShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].seventh}
+            color={colorPreset[theme].desktop}
             metalness={0.0}
             roughness={0.6}
           />
@@ -86,10 +95,12 @@ export default function Office() {
           geometry={nodes.desk_1.geometry}
           position={[0.64, 0.81, -0.13]}
           scale={[0.78, 0.78, 0.78]}
+          castShadow
+          receiveShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].first}
+            color={colorPreset[theme].desk}
             metalness={0.0}
             roughness={0.6}
           />
@@ -102,10 +113,12 @@ export default function Office() {
           position={[0.99, 0.78, -0.07]}
           rotation={[0, 0, -Math.PI / 2]}
           scale={[0.44, 0.44, 0.37]}
+          castShadow
+          receiveShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].second}
+            color={colorPreset[theme].monitor}
             metalness={0.0}
             roughness={0.6}
           />
@@ -117,10 +130,12 @@ export default function Office() {
           geometry={nodes.desk_box_1.geometry}
           position={[0.68, 0.6, 0.74]}
           scale={[0.24, 0.24, 0.24]}
+          castShadow
+          receiveShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].third}
+            color={colorPreset[theme].tissue}
             metalness={0.0}
             roughness={0.6}
           />
@@ -133,10 +148,12 @@ export default function Office() {
           position={[0.48, 0.37, -0.01]}
           rotation={[0, 0, -Math.PI]}
           scale={[0.31, 0.56, 0.37]}
+          castShadow
+          receiveShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].second}
+            color={colorPreset[theme].keyboard}
             metalness={0.0}
             roughness={0.6}
           />
@@ -148,10 +165,12 @@ export default function Office() {
           geometry={nodes.wall_1.geometry}
           position={[-0.35, 0.7, -0.51]}
           scale={[0.44, 0.75, 0.12]}
+          castShadow
+          receiveShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].sixth}
+            color={colorPreset[theme].wall_right}
             metalness={0.0}
             roughness={0.6}
           />
@@ -164,10 +183,12 @@ export default function Office() {
           position={[-0.18, 0.1, 0.1]}
           rotation={[0, 0.39, 0]}
           scale={[0.53, 0.47, 0.55]}
+          castShadow
+          receiveShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].third}
+            color={colorPreset[theme].chair}
             metalness={0.0}
             roughness={0.6}
           />
@@ -179,10 +200,12 @@ export default function Office() {
           geometry={nodes.wall_2.geometry}
           position={[-0.66, 0.93, -0.3]}
           scale={[0.44, 0.75, 0.04]}
+          castShadow
+          receiveShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].fifth}
+            color={colorPreset[theme].wall_left}
             metalness={0.0}
             roughness={0.6}
           />
@@ -194,10 +217,12 @@ export default function Office() {
           geometry={nodes.trashcan_1.geometry}
           position={[0.17, 0.2, 0.79]}
           scale={[0.41, 0.69, 0.41]}
+          castShadow
+          receiveShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].seventh}
+            color={colorPreset[theme].trashcan}
             metalness={0.0}
             roughness={0.6}
           />
@@ -210,26 +235,28 @@ export default function Office() {
           position={[-0.36, 1.06, -0.38]}
           rotation={[0, 0, Math.PI / 2]}
           scale={[0.25, 0.88, 0.71]}
+          castShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].fourth}
+            color={colorPreset[theme].logo}
             metalness={0.0}
             roughness={0.3}
           />
         </mesh>
       </group>
       {/* Hovering Object */}
-      <group ref={hovering} dispose={null}>
+      <group ref={hovering} position={[0, 0.5, 0]} dispose={null}>
         <mesh
           material={materials.Material}
           geometry={nodes.hover_2.geometry}
           position={[-0.02, 1.43, -0.91]}
           scale={[0.09, 0.09, 0.09]}
+          castShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].fourth}
+            color={colorPreset[theme].hover2}
             metalness={0.0}
             roughness={0.6}
           />
@@ -240,10 +267,11 @@ export default function Office() {
           position={[0.56, 1.83, 0.91]}
           rotation={[2.95, 0.54, -2.78]}
           scale={[0.15, 0.15, 0.15]}
+          castShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].third}
+            color={colorPreset[theme].hover1}
             metalness={0.0}
             roughness={0.6}
           />
@@ -253,10 +281,11 @@ export default function Office() {
           geometry={nodes.hover_3.geometry}
           position={[-0.43, 1.53, 0.85]}
           scale={[0.09, 0.09, 0.09]}
+          castShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].fifth}
+            color={colorPreset[theme].hover3}
             metalness={0.0}
             roughness={0.6}
           />
@@ -267,10 +296,11 @@ export default function Office() {
           position={[-0.62, 1.24, 0.6]}
           rotation={[-0.94, -1, -1.25]}
           scale={[0.14, 0.14, 0.14]}
+          castShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].sixth}
+            color={colorPreset[theme].hover4}
             metalness={0.0}
             roughness={0.6}
           />
@@ -282,10 +312,11 @@ export default function Office() {
           material={materials.Material}
           geometry={nodes.graph_1.geometry}
           position={[-0.51, 0.12, 0.85]}
+          castShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].second}
+            color={colorPreset[theme].cube1}
             metalness={0.0}
             roughness={1.0}
           />
@@ -294,10 +325,11 @@ export default function Office() {
           material={materials.Material}
           geometry={nodes.graph_2.geometry}
           position={[-0.51, 0, 0.69]}
+          castShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].third}
+            color={colorPreset[theme].cube2}
             metalness={0.0}
             roughness={1.0}
           />
@@ -306,10 +338,11 @@ export default function Office() {
           material={materials.Material}
           geometry={nodes.graph_3.geometry}
           position={[-0.51, 0.11, 0.56]}
+          castShadow
         >
           <meshStandardMaterial
             attach="material"
-            color={colorPreset[theme].fourth}
+            color={colorPreset[theme].cube3}
             metalness={0.0}
             roughness={1.0}
           />
