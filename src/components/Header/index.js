@@ -1,10 +1,9 @@
 import React, { Suspense } from "react";
 import { CssBaseline, Typography } from "@material-ui/core";
-import { Canvas } from "react-three-fiber";
-import { GroundPlane, BackDrop, Model } from "./Modeling/model";
-import { KeyLight, FillLight, RimLight } from "./Modeling/light";
+import { Model } from "./Modeling/model";
 import { headerStyles } from "./style";
-import WeebutLogo from "../../assets/logo/Weebut-light-192.png";
+import WeebutTextLogo from "../../assets/logo/Weebut-12.png";
+import WeebutLogoDark from "../../assets/logo/Weebut-dark-192.png";
 
 export default function Header() {
   const classes = headerStyles();
@@ -13,28 +12,27 @@ export default function Header() {
     <React.Fragment>
       <CssBaseline />
       <div className={classes.container}>
-        <div className={classes.headerContainer}>
-          <img src={WeebutLogo} alt={"Weebut"} className={classes.teamLogo} />
-          <Typography component="h3" variant="h4" className={classes.teamName}>
-            Weebut
-          </Typography>
+      <div className={classes.headerContainer}>
+        <div className={classes.logoContainer}>
+        <img
+            src={WeebutLogoDark}
+            alt={"Weebut"}
+            className={classes.teamLogo}
+          />
         </div>
-        <div className={classes.contentContainer}>
-          <div className={classes.model}>
-            <Canvas
-              camera={{ fov: 18, position: [9, 2, 8] }}
-              className={classes.contentContainer}
-            >
-              <KeyLight />
-              <FillLight />
-              <RimLight />
-              <Suspense fallback={null}>
-                <Model />
-              </Suspense>
-            </Canvas>
-          </div>
-          <div className={classes.description}></div>
+        <div className={classes.descriptionContianer}>
+        <img
+            src={WeebutTextLogo}
+            alt={"Weebut"}
+            className={classes.textLogo}
+          />
         </div>
+      </div>
+      <div className={classes.contentContainer}>
+      
+        <Model />
+           {/* <div className={classes.description}></div> */}
+      </div>
       </div>
     </React.Fragment>
   );

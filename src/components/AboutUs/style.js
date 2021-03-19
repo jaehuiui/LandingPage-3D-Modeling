@@ -2,10 +2,12 @@ import { makeStyles } from "@material-ui/core";
 
 export const teamStyles = makeStyles((theme) => ({
   root: {
+    width: "100vw",
     height: "100vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    backgroundColor: "#F3F1F0",
   },
   content: {
     padding: theme.spacing(12),

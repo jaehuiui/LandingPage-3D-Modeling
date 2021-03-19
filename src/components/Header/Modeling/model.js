@@ -1,57 +1,69 @@
-import React, { useRef } from "react";
-import { useFrame } from "react-three-fiber";
-import { useGLTF, PerspectiveCamera } from "@react-three/drei";
-/*
-React Three Fiber
-: Html5 Canvas + WebGL 을 통해 3D 렌더링을 할 수 있도록 하는 모듈
-*/
-export function GroundPlane() {
+import React, { Suspense } from "react";
+import Office from "./office";
+import {
+  KeyLight,
+  NormalLight,
+  SunsetLight,
+  DoomLight1,
+  DoomLight2,
+  RimLight,
+} from "./light";
+import { Canvas, extend, useThree } from "react-three-fiber";
+import { softShadows} from "@react-three/drei";
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+
+extend({ OrbitControls })
+
+softShadows();
+
+function Plane(props) {
   return (
-    <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
-      <planeBufferGeometry attach="geometry" args={[500, 500]} />
-      <meshStandardMaterial attach="material" color="white" />
+    <mesh
+      receiveShadow
+      rotation-x={-Math.PI / 2}
+      {...props}
+      position={[0, 0, 0]}
+    >
+      <planeBufferGeometry attach="geometry" args={[50, 50]} />
+      <shadowMaterial attach="material" transparent opacity={0.4} />
     </mesh>
   );
 }
 
-export function BackDrop() {
+const Scene = () => {
+  const {
+    camera,
+    gl: { domElement }
+  } = useThree()
   return (
-    <mesh receiveShadow position={[0, -1, -4]}>
-      <planeBufferGeometry attach="geometry" args={[500, 500]} />
-      <meshStandardMaterial attach="material" color="white" />
-    </mesh>
-  );
+    <>
+      <orbitControls args={[camera, domElement]} />
+    </>
+  )
 }
 
 export function Model() {
-  const { scene, nodes, materials } = useGLTF("models/testf.gltf");
-  const group = useRef();
-  // useFrame will run outside of react in animation frames to optimize updates.
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    group.current.rotation.z = -0.2 - (1 + Math.sin(t / 1.5)) / 20;
-    group.current.rotation.x = Math.cos(t / 4) / 8;
-    group.current.rotation.y = Math.sin(t / 4) / 8;
-    group.current.position.y = (1 + Math.sin(t / 1.5)) / 10 - 0.5;
-  });
 
   return (
-    <group ref={group} position={[0, 0, 0]}>
-      {/* <mesh geometry={nodes.평면.geometry}>
-        <meshStandardMaterial attach="material" color="hotpink" />
-      </mesh>
-      <mesh geometry={nodes.큐브.geometry}>
-        <meshStandardMaterial attach="material" color="white" />
-      </mesh> */}
-      {/* <mesh geometry={nodes.a.geometry}>
-        <meshStandardMaterial attach="material" color="hotpink" />
-      </mesh>
-      
-      {/* <mesh>
-      <planeBufferGeometry attach="geometry" args={[500, 500]} />
-      <meshStandardMaterial attach="material" color="white" />
-      </mesh> */}
-      <primitive scale={[1, 1, 1]} object={scene} dispose={null} />
-    </group>
+    <Canvas
+      camera={{ zoom: 1, fov: 23, position: [10.3, 2.5, 8] }}
+      colorManagement
+      shadowMap
+    >
+    {/* <Scene /> */}
+      {/* <fog attach="fog" args={["white", 0, 80]} /> */}
+      <KeyLight />
+      <SunsetLight />
+      <DoomLight1 />
+      <DoomLight2 />
+      <NormalLight />
+      <RimLight />
+      <Suspense fallback={null}>
+        <group position={[0.2, -0.6, 0]}>
+          <Plane />
+          <Office />
+        </group>
+      </Suspense>
+    </Canvas>
   );
 }
