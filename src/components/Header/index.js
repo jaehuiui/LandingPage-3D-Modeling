@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
-import { CssBaseline } from "@material-ui/core";
+import { CssBaseline, Typography } from "@material-ui/core";
 import { Model } from "./Modeling/model";
 import { headerStyles } from "./style";
-import WeebutLogoLight from "../../assets/logo/Weebut-light-192.png";
+import WeebutTextLogo from "../../assets/logo/Weebut-12.png";
 import WeebutLogoDark from "../../assets/logo/Weebut-dark-192.png";
 
 export default function Header() {
@@ -11,24 +11,29 @@ export default function Header() {
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* <div className={classes.container}> */}
-      {/* <div className={classes.headerContainer}>
-          <img
+      <div className={classes.container}>
+      <div className={classes.headerContainer}>
+        <div className={classes.logoContainer}>
+        <img
             src={WeebutLogoDark}
             alt={"Weebut"}
             className={classes.teamLogo}
           />
-          <Typography component="h3" variant="h4" className={classes.teamName}>
-            Weebut
-          </Typography>
-        </div> */}
-      {/* <div className={classes.contentContainer}> */}
-      <div className={classes.container}>
-        <Model />
+        </div>
+        <div className={classes.descriptionContianer}>
+        <img
+            src={WeebutTextLogo}
+            alt={"Weebut"}
+            className={classes.textLogo}
+          />
+        </div>
       </div>
-      {/* <div className={classes.description}></div> */}
-      {/* </div> */}
-      {/* </div> */}
+      <div className={classes.contentContainer}>
+      
+        <Model />
+           {/* <div className={classes.description}></div> */}
+      </div>
+      </div>
     </React.Fragment>
   );
 }

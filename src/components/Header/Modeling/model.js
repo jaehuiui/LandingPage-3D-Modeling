@@ -6,10 +6,13 @@ import {
   SunsetLight,
   DoomLight1,
   DoomLight2,
-  FillLight,
+  RimLight,
 } from "./light";
-import { Canvas } from "react-three-fiber";
-import { softShadows } from "@react-three/drei";
+import { Canvas, extend, useThree } from "react-three-fiber";
+import { softShadows} from "@react-three/drei";
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+
+extend({ OrbitControls })
 
 softShadows();
 
@@ -27,22 +30,36 @@ function Plane(props) {
   );
 }
 
+const Scene = () => {
+  const {
+    camera,
+    gl: { domElement }
+  } = useThree()
+  return (
+    <>
+      <orbitControls args={[camera, domElement]} />
+    </>
+  )
+}
+
 export function Model() {
+
   return (
     <Canvas
-      camera={{ zoom: 1, fov: 25, position: [14.3, 2.5, 8] }}
+      camera={{ zoom: 1, fov: 23, position: [10.3, 2.5, 8] }}
       colorManagement
       shadowMap
     >
+    {/* <Scene /> */}
       {/* <fog attach="fog" args={["white", 0, 80]} /> */}
-      {/* <KeyLight />
+      <KeyLight />
       <SunsetLight />
       <DoomLight1 />
       <DoomLight2 />
-      <NormalLight /> */}
-      <FillLight />
+      <NormalLight />
+      <RimLight />
       <Suspense fallback={null}>
-        <group position={[4.2, -0.5, 0]}>
+        <group position={[0.2, -0.6, 0]}>
           <Plane />
           <Office />
         </group>

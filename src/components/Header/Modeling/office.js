@@ -66,8 +66,8 @@ export default function Office() {
           <meshStandardMaterial
             attach="material"
             color={colorPreset[theme].printer}
-            metalness={0.2}
-            roughness={0.6}
+            metalness={0.8}
+            roughness={0.2}
           />
         </mesh>
       </group>
@@ -189,8 +189,8 @@ export default function Office() {
           <meshStandardMaterial
             attach="material"
             color={colorPreset[theme].chair}
-            metalness={0.0}
-            roughness={0.6}
+            metalness={0.2}
+            roughness={0.0}
           />
         </mesh>
       </group>
@@ -220,11 +220,10 @@ export default function Office() {
           castShadow
           receiveShadow
         >
-          <meshStandardMaterial
+          <meshPhongMaterial
             attach="material"
             color={colorPreset[theme].trashcan}
-            metalness={0.0}
-            roughness={0.6}
+            shininess={50}
           />
         </mesh>
       </group>
@@ -237,18 +236,16 @@ export default function Office() {
           scale={[0.25, 0.88, 0.71]}
           castShadow
         >
-          <meshStandardMaterial
+          <meshPhongMaterial
             attach="material"
             color={colorPreset[theme].logo}
-            metalness={0.0}
-            roughness={0.3}
+            shininess={50}
           />
         </mesh>
       </group>
       {/* Hovering Object */}
       <group ref={hovering} position={[0, 0.5, 0]} dispose={null}>
         <mesh
-          material={materials.Material}
           geometry={nodes.hover_2.geometry}
           position={[-0.02, 1.43, -0.91]}
           scale={[0.09, 0.09, 0.09]}
@@ -262,7 +259,6 @@ export default function Office() {
           />
         </mesh>
         <mesh
-          material={materials.Material}
           geometry={nodes.hover_1.geometry}
           position={[0.56, 1.83, 0.91]}
           rotation={[2.95, 0.54, -2.78]}
@@ -272,12 +268,11 @@ export default function Office() {
           <meshStandardMaterial
             attach="material"
             color={colorPreset[theme].hover1}
-            metalness={0.0}
-            roughness={0.6}
+            metalness={0.6}
+            roughness={0.2}
           />
         </mesh>
         <mesh
-          material={materials.Material}
           geometry={nodes.hover_3.geometry}
           position={[-0.43, 1.53, 0.85]}
           scale={[0.09, 0.09, 0.09]}
@@ -286,12 +281,11 @@ export default function Office() {
           <meshStandardMaterial
             attach="material"
             color={colorPreset[theme].hover3}
-            metalness={0.0}
-            roughness={0.6}
+            metalness={0.6}
+            roughness={0.2}
           />
         </mesh>
         <mesh
-          material={materials.Material}
           geometry={nodes.hover_4.geometry}
           position={[-0.62, 1.24, 0.6]}
           rotation={[-0.94, -1, -1.25]}
@@ -301,8 +295,8 @@ export default function Office() {
           <meshStandardMaterial
             attach="material"
             color={colorPreset[theme].hover4}
-            metalness={0.0}
-            roughness={0.6}
+            metalness={0.6}
+            roughness={0.2}
           />
         </mesh>
       </group>
