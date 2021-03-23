@@ -17,7 +17,7 @@ export default function Background(props) {
         scale={[20.99, 8.99, 8.99]}
         receiveShadow
       >
-        <shadowMaterial attach="material" transparent opacity={0.4} />
+        <shadowMaterial attach="material" transparent opacity={0.0} />
         <meshStandardMaterial
           attach="material"
           color={"#000000"}

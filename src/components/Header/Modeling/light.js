@@ -11,7 +11,7 @@ function MainLightRotating(ref, time) {
 }
 
 function MainLightIntensity(ref, time) {
-  ref.current.intensity = 0.25 * Math.sin(time / 20) + 0.3;
+  ref.current.intensity = 0.4 * Math.sin(time / 20) + 0.3;
 }
 
 export function MainLight() {
@@ -60,7 +60,7 @@ export function SubLight() {
       ref={_sublight}
       position={[8, 10, 12]}
       color={lightPreset[index].keyCr}
-      decay={20}
+      decay={10}
       shadow-mapSize-height={4096}
       shadow-mapSize-width={4096}
       castShadow
@@ -77,7 +77,7 @@ export function TextLight() {
       intensity={1.4}
       color={"#FFFFFF"}
       castShadow
-      decay={50}
+      decay={20}
       lookAt={[0, 10, 0.3]}
     />
   );
@@ -88,7 +88,7 @@ export function GlobalLight() {
     <directionalLight
       position={[0, 8, -10]}
       color={"#FFFFFF"}
-      intensity={0.8}
+      intensity={0.6}
     />
   );
 }
@@ -96,10 +96,10 @@ export function GlobalLight() {
 export function CeilingLight() {
   return (
     <pointLight
-      position={[0, 20, -1]}
+      position={[0, 10, -1]}
       color={"#FFFFFF"}
       decay={20}
-      intensity={0.3}
+      intensity={0.2}
       shadow-mapSize-height={4096}
       shadow-mapSize-width={4096}
       castShadow

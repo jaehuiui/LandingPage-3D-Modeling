@@ -8,7 +8,7 @@ import {
   AmbientLight,
 } from "./light";
 import { Canvas, extend, useThree } from "react-three-fiber";
-import { softShadows } from "@react-three/drei";
+import { softShadows, Text } from "@react-three/drei";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Background from "./background";
 import Weebut from "./weebut";
@@ -55,6 +55,7 @@ function CameraControl() {
 
 export function Model() {
   const [rotation, setRotation] = useState([0, 0, 0, 0]);
+  const [test, setTest] = useState(false);
 
   const onMouseMove = (e) => {
     setRotation([
@@ -78,6 +79,15 @@ export function Model() {
       <CeilingLight />
       <AmbientLight />
       <TextLight />
+      <Text
+        scale={[0.7, 0.7, 0.7]}
+        position={[0, -0.9, 2.5]}
+        onClick={() => {
+          setTest(!test);
+        }}
+      >
+        {test ? "Product" : "No"}
+      </Text>
       <Suspense fallback={null}>
         <group position={[-0.1, -0.7, 0]} rotation={rotation}>
           <Weebut />

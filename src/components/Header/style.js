@@ -2,13 +2,19 @@ import { makeStyles } from "@material-ui/core";
 
 export const headerStyles = makeStyles((theme) => ({
   container: {
+    zIndex: 1,
     height: "100vh",
     width: "100vw",
     display: "flex",
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center",
     backgroundColor: "#000000",
+  },
+  canvas: {
+    height: "100vh",
+    width: "100vw",
+    position: "absolute",
+    zIndex: 2,
   },
   headerContainer: {
     flex: 3.5,
@@ -58,26 +64,41 @@ export const headerStyles = makeStyles((theme) => ({
     marginBottom: "300px",
   },
   navContainer: {
-    flex: 1,
-    height: "20%",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    backgroundColor: "#000000",
-  },
-  contentContainer: {
-    flex: 8,
-    height: "80%",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "#000000",
-  },
-  navBar: {
-    height: "100%",
+    position: "absolute",
+    zIndex: 3,
+    flex: 1.5,
+    height: "15%",
     width: "100%",
     display: "flex",
     flexDirection: "row",
+    justifyContent: "space-between",
+    alignSelf: "center",
+    backgroundColor: "transparent",
+  },
+  navBar: {
+    display: "flex",
+    flexDirection: "row",
+    alignSelf: "center",
+  },
+  navLogo: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignSelf: "center",
+  },
+  navItemContainer: {
+    flex: 8,
+    display: "flex",
+    flexDirection: "row-reverse",
+    alignSelf: "center",
+  },
+  navItem: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    marginLeft: theme.spacing(6),
+  },
+  navText: {
+    color: "#FFFFFF",
   },
 }));
