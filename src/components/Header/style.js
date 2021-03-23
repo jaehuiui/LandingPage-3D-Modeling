@@ -6,9 +6,9 @@ export const headerStyles = makeStyles((theme) => ({
     width: "100vw",
     display: "flex",
     flex: 1,
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "center",
-    backgroundColor: "#181818",
+    backgroundColor: "#000000",
   },
   headerContainer: {
     flex: 3.5,
@@ -33,15 +33,9 @@ export const headerStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     padding: theme.spacing(6),
-    justifyContent: "center"
+    justifyContent: "center",
   },
-  contentContainer: {
-    flex: 6.5,
-    height: "100%",
-    width: "65%",
-    display: "flex",
-    flexDirection: "row",
-  },
+
   description: {
     flex: 4,
     width: "40%",
@@ -62,5 +56,28 @@ export const headerStyles = makeStyles((theme) => ({
   },
   textLogo: {
     marginBottom: "300px",
+  },
+  navContainer: {
+    flex: 1,
+    height: "20%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: "#000000",
+  },
+  contentContainer: {
+    flex: 8,
+    height: "80%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "#000000",
+  },
+  navBar: {
+    height: "100%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
   },
 }));

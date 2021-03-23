@@ -1,4 +1,4 @@
-export const colorPresetIndex = 1;
+export const colorPresetIndex = 2;
 
 export const sample = [
   // Cozy Theme1
@@ -75,5 +75,28 @@ export const colorPreset = [
     hover4: "#D8C1B9",
     logo: "#FFFFFF",
     tissue: "#DDEFF7",
+  },
+  // FA, F5, EE, E0, BD, 9E, 75, 61, 42, 21
+  {
+    desk: "#616161  ",
+    monitor: "#BDBDBD",
+    printer: "#EEEEEE",
+    trashcan: "#757575",
+    chair: "#424242",
+    desktop: "#424242",
+    wall_right: "#757575",
+    wall_left: "#757575",
+    keyboard: "#FAFAFA",
+    cube1: "#9E9E9E",
+    cube2: "#E0E0E0",
+    cube3: "#212121",
+    cube4: "#424242",
+    hover1: "#F5F5F5",
+    hover2: "#BDBDBD",
+    hover3: "#EEEEEE",
+    hover4: "#424242",
+    hover5: "#757575",
+    logo: "#616161",
+    tissue: "#757575",
   },
 ];

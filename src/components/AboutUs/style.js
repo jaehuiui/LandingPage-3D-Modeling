@@ -1,36 +1,7 @@
-import { makeStyles } from "@material-ui/core";
+import styled from "styled-components";
 
-export const teamStyles = makeStyles((theme) => ({
-  root: {
-    width: "100vw",
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    backgroundColor: "#F3F1F0",
-  },
-  content: {
-    padding: theme.spacing(12),
-  },
-  description: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  members: {
-    marginTop: 30,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-  profile: {
-    display: "flex",
-    flexDirection: "column",
-    textAlign: "center",
-  },
-  profileImage: {
-    padding: theme.spacing(2),
-  },
-  profileContent: {
-    marginTop: 30,
-  },
-}));
+export const Container = styled.div`
+  height: 100vh;
+  width: 100%;
+  background-color: #f3f1f0;
+`;
