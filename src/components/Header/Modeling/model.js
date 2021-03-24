@@ -68,7 +68,6 @@ export function Model() {
   return (
     <Canvas
       camera={{ zoom: 1, fov: 30, position: [0, 0.7, 7.8] }}
-      gl={{ antialias: true }}
       colorManagement
       shadowMap
       onMouseMove={onMouseMove}
