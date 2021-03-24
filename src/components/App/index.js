@@ -15,25 +15,7 @@ function App() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <ReactPageScroller
-        pageOnChange={(number) => {
-          setCurrentPage(number);
-        }}
-        onBeforePageScroll={(number) => {
-          setCurrentPage(number);
-        }}
-        customPageNumber={currentPage}
-        animationTimer={650}
-        animationTimerBuffer={200}
-      >
-        <Header />
-        <AboutUs />
-        <Product />
-        <Developer />
-        <Research />
-        <Design />
-        <Footer />
-      </ReactPageScroller>
+      <Header />
     </React.Fragment>
   );
 }
