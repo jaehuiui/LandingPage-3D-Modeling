@@ -1,8 +1,7 @@
-import React, { Suspense } from "react";
-import { CssBaseline, Container, Typography, Grid } from "@material-ui/core";
+import React from "react";
+import { CssBaseline, Container, Typography, Link } from "@material-ui/core";
 import { Model } from "./Modeling/model";
 import { headerStyles } from "./style";
-import WeebutTextLogo from "../../assets/logo/Weebut-12.png";
 import WeebutLogoLight from "../../assets/logo/Weebut-light-192.png";
 
 export default function Header() {
@@ -11,23 +10,6 @@ export default function Header() {
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* <div className={classes.headerContainer}>
-        <div className={classes.logoContainer}>
-        <img
-            src={WeebutLogoDark}
-            alt={"Weebut"}
-            className={classes.teamLogo}
-          />
-        </div>
-        <div className={classes.descriptionContianer}>
-        <img
-            src={WeebutTextLogo}
-            alt={"Weebut"}
-            className={classes.textLogo}
-          />
-        </div>
-      </div> */}
-
       <div className={classes.container}>
         <Model className={classes.canvas} />
         <Container className={classes.navContainer} maxWidth="lg">
@@ -45,7 +27,9 @@ export default function Header() {
                 component="h6"
                 variant="h6"
               >
-                etc
+                <Link href="#" onClick={() => {}} color="inherit">
+                  etc
+                </Link>
               </Typography>
             </div>
             <div className={classes.navItem}>
@@ -54,7 +38,9 @@ export default function Header() {
                 component="h6"
                 variant="h6"
               >
-                Design
+                <Link href="#" onClick={() => {}} color="inherit">
+                  Design
+                </Link>
               </Typography>
             </div>
             <div className={classes.navItem}>
@@ -63,7 +49,9 @@ export default function Header() {
                 component="h6"
                 variant="h6"
               >
-                AI Research
+                <Link href="#" onClick={() => {}} color="inherit">
+                  AI Research
+                </Link>
               </Typography>
             </div>
             <div className={classes.navItem}>
@@ -72,7 +60,9 @@ export default function Header() {
                 component="h6"
                 variant="h6"
               >
-                Developer
+                <Link href="#" onClick={() => {}} color="inherit">
+                  Developer
+                </Link>
               </Typography>
             </div>
             <div className={classes.navItem}>
@@ -81,7 +71,9 @@ export default function Header() {
                 component="h6"
                 variant="h6"
               >
-                Product
+                <Link href="#" onClick={() => {}} color="inherit">
+                  Product
+                </Link>
               </Typography>
             </div>
             <div className={classes.navItem}>
@@ -90,7 +82,9 @@ export default function Header() {
                 component="h6"
                 variant="h6"
               >
-                Who we are
+                <Link href="#" onClick={() => {}} color="inherit">
+                  Who we are
+                </Link>
               </Typography>
             </div>
           </div>
