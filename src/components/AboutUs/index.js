@@ -1,6 +1,5 @@
 import React from "react";
-import { CssBaseline, Grid, Container, Typography } from "@material-ui/core";
-import { teamStyles } from "./style";
+import { Container, Contents, RowGrid } from "../Styles/Grid";
 import KOO from "../../assets/image/KOO.png";
 import LEE from "../../assets/image/LEE.png";
 import OH from "../../assets/image/OH.png";
@@ -14,54 +13,16 @@ const members = [
 ];
 
 function AboutUs() {
-  const classes = teamStyles();
-
   return (
     <React.Fragment>
-      <CssBaseline />
-        <div className={classes.root}>
-          <div  className={classes.content}>
-            <div className={classes.description}>
-              <Typography
-                component="h3"
-                variant="h4"
-                color="textPrimary"
-                gutterBottom
-              >
-                about TEAM_
-              </Typography>
-              <Typography variant="h6" color="textSecondary" paragraph>
-                2020.08~ : KAIKAI / KAIST, Daejeon <br /> 2021.01~ : Weebut /
-                Seocho, Seoul
-              </Typography>
-            </div>
-            <Container maxWidth="lg" className={classes.members}>
-              {members.map((member) => (
-                <Grid
-                  item
-                  key={member}
-                  xs={3}
-                  container
-                  className={classes.profile}
-                >
-                  <img
-                    src={member.profile}
-                    alt={member.name}
-                    style={{ width: 200, height: 200 }}
-                  />
-                  <Typography
-                    variant="h6"
-                    color="textPrimary"
-                    gutterBottom
-                    className={classes.profileContent}
-                  >
-                    {member.name}
-                  </Typography>
-                </Grid>
-              ))}
-            </Container>
-          </div>
-      </div>
+      <Container className="AboutUs" color="#F3F1F0">
+        <Contents className="Contents">
+          <RowGrid size={1}>
+            <h1> 모두가 벗처럼 일할 수 있는 위벗을 추구합니다.</h1>
+          </RowGrid>
+          <RowGrid size={2}></RowGrid>
+        </Contents>
+      </Container>
     </React.Fragment>
   );
 }

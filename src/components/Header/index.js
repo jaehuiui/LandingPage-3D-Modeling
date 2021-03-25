@@ -1,9 +1,8 @@
-import React, { Suspense } from "react";
-import { CssBaseline, Typography } from "@material-ui/core";
+import React from "react";
+import { CssBaseline, Container, Typography, Link } from "@material-ui/core";
 import { Model } from "./Modeling/model";
 import { headerStyles } from "./style";
-import WeebutTextLogo from "../../assets/logo/Weebut-12.png";
-import WeebutLogoDark from "../../assets/logo/Weebut-dark-192.png";
+import WeebutLogoLight from "../../assets/logo/Weebut-light-192.png";
 
 export default function Header() {
   const classes = headerStyles();
@@ -12,28 +11,87 @@ export default function Header() {
     <React.Fragment>
       <CssBaseline />
       <div className={classes.container}>
-      <div className={classes.headerContainer}>
-        <div className={classes.logoContainer}>
-        <img
-            src={WeebutLogoDark}
-            alt={"Weebut"}
-            className={classes.teamLogo}
-          />
-        </div>
-        <div className={classes.descriptionContianer}>
-        <img
-            src={WeebutTextLogo}
-            alt={"Weebut"}
-            className={classes.textLogo}
-          />
-        </div>
+        <Model className={classes.canvas} />
+        <Container className={classes.navContainer} maxWidth="lg">
+          <div className={classes.navLogo}>
+            <img
+              src={WeebutLogoLight}
+              alt={"Weebut"}
+              className={classes.teamLogo}
+            />
+          </div>
+          <div className={classes.navItemContainer}>
+            <div className={classes.navItem}>
+              <Typography
+                className={classes.navText}
+                component="h6"
+                variant="h6"
+              >
+                <Link href="#" onClick={() => {}} color="inherit">
+                  etc
+                </Link>
+              </Typography>
+            </div>
+            <div className={classes.navItem}>
+              <Typography
+                className={classes.navText}
+                component="h6"
+                variant="h6"
+              >
+                <Link href="#" onClick={() => {}} color="inherit">
+                  Design
+                </Link>
+              </Typography>
+            </div>
+            <div className={classes.navItem}>
+              <Typography
+                className={classes.navText}
+                component="h6"
+                variant="h6"
+              >
+                <Link href="#" onClick={() => {}} color="inherit">
+                  AI Research
+                </Link>
+              </Typography>
+            </div>
+            <div className={classes.navItem}>
+              <Typography
+                className={classes.navText}
+                component="h6"
+                variant="h6"
+              >
+                <Link href="#" onClick={() => {}} color="inherit">
+                  Developer
+                </Link>
+              </Typography>
+            </div>
+            <div className={classes.navItem}>
+              <Typography
+                className={classes.navText}
+                component="h6"
+                variant="h6"
+              >
+                <Link href="#" onClick={() => {}} color="inherit">
+                  Product
+                </Link>
+              </Typography>
+            </div>
+            <div className={classes.navItem}>
+              <Typography
+                className={classes.navText}
+                component="h6"
+                variant="h6"
+              >
+                <Link href="#" onClick={() => {}} color="inherit">
+                  Who we are
+                </Link>
+              </Typography>
+            </div>
+          </div>
+        </Container>
       </div>
-      <div className={classes.contentContainer}>
-      
-        <Model />
-           {/* <div className={classes.description}></div> */}
-      </div>
-      </div>
+
+      {/* <div className={classes.description}></div> */}
     </React.Fragment>
   );
 }
