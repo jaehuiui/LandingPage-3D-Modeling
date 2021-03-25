@@ -1,4 +1,6 @@
 # Weebut Landing Page
+https://jaehuiui.github.io/Weebut-LandingPage/   
+
 ## Structure 
 > React, React-Redux, React-Router, React-DOM   
 --- 
