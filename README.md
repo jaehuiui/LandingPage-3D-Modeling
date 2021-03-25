@@ -1,5 +1,6 @@
 # Weebut Landing Page 🏢
-🎉 Live Demo 🎉   
+🎉 Live Demo 🎉    
+    
 https://jaehuiui.github.io/Weebut-LandingPage/   
 
 ## Structure 
@@ -12,4 +13,6 @@ Use .gltf modeling file with gltfjsx
 ---
 ## UI 
 > React-Page-Scroll, Material-UI, Styled-Component   
+> Design : Sujin Park
 ---
+
