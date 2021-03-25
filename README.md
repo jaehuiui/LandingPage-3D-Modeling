@@ -1,4 +1,5 @@
-# Weebut Landing Page
+# Weebut Landing Page 🏢
+🎉 Live Demo 🎉
 https://jaehuiui.github.io/Weebut-LandingPage/   
 
 ## Structure 
@@ -10,5 +11,5 @@ Model designed with Blender
 Use .gltf modeling file with gltfjsx   
 ---
 ## UI 
-> React-Slick, Styled-Component   
+> React-Page-Scroll, Material-UI, Styled-Component   
 ---
