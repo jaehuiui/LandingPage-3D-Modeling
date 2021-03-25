@@ -68,6 +68,7 @@ export function Model() {
   return (
     <Canvas
       camera={{ zoom: 1, fov: 30, position: [0, 0.7, 7.8] }}
+      gl={{ antialias: true }}
       colorManagement
       shadowMap
       onMouseMove={onMouseMove}
@@ -78,15 +79,6 @@ export function Model() {
       <CeilingLight />
       <AmbientLight />
       <TextLight />
-      <Text
-        scale={[0.7, 0.7, 0.7]}
-        position={[0, -0.9, 2.5]}
-        onClick={() => {
-          setTest(!test);
-        }}
-      >
-        {test ? "Product" : "No"}
-      </Text>
       <Suspense fallback={null}>
         <group position={[-0.1, -0.7, 0]} rotation={rotation}>
           <Weebut />
