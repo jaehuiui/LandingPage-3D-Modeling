@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/Weebut-LandingPage/static/js/main.47dcf0df.chunk.js",
-    "main.js.map": "/Weebut-LandingPage/static/js/main.47dcf0df.chunk.js.map",
-    "runtime-main.js": "/Weebut-LandingPage/static/js/runtime-main.ec6712c7.js",
-    "runtime-main.js.map": "/Weebut-LandingPage/static/js/runtime-main.ec6712c7.js.map",
-    "static/js/2.e36252f3.chunk.js": "/Weebut-LandingPage/static/js/2.e36252f3.chunk.js",
-    "static/js/2.e36252f3.chunk.js.map": "/Weebut-LandingPage/static/js/2.e36252f3.chunk.js.map",
-    "index.html": "/Weebut-LandingPage/index.html",
-    "static/js/2.e36252f3.chunk.js.LICENSE.txt": "/Weebut-LandingPage/static/js/2.e36252f3.chunk.js.LICENSE.txt",
-    "static/media/KOO.a1d216ae.png": "/Weebut-LandingPage/static/media/KOO.a1d216ae.png",
-    "static/media/LEE.bcbfb739.png": "/Weebut-LandingPage/static/media/LEE.bcbfb739.png",
-    "static/media/OH.ab552518.png": "/Weebut-LandingPage/static/media/OH.ab552518.png",
-    "static/media/PARK.1a936ebd.png": "/Weebut-LandingPage/static/media/PARK.1a936ebd.png"
+    "main.js": "/LandingPage-3D-Modeling/static/js/main.25032051.chunk.js",
+    "main.js.map": "/LandingPage-3D-Modeling/static/js/main.25032051.chunk.js.map",
+    "runtime-main.js": "/LandingPage-3D-Modeling/static/js/runtime-main.f8e5f911.js",
+    "runtime-main.js.map": "/LandingPage-3D-Modeling/static/js/runtime-main.f8e5f911.js.map",
+    "static/js/2.5bdcde57.chunk.js": "/LandingPage-3D-Modeling/static/js/2.5bdcde57.chunk.js",
+    "static/js/2.5bdcde57.chunk.js.map": "/LandingPage-3D-Modeling/static/js/2.5bdcde57.chunk.js.map",
+    "index.html": "/LandingPage-3D-Modeling/index.html",
+    "static/js/2.5bdcde57.chunk.js.LICENSE.txt": "/LandingPage-3D-Modeling/static/js/2.5bdcde57.chunk.js.LICENSE.txt",
+    "static/media/KOO.a1d216ae.png": "/LandingPage-3D-Modeling/static/media/KOO.a1d216ae.png",
+    "static/media/LEE.bcbfb739.png": "/LandingPage-3D-Modeling/static/media/LEE.bcbfb739.png",
+    "static/media/OH.ab552518.png": "/LandingPage-3D-Modeling/static/media/OH.ab552518.png",
+    "static/media/PARK.1a936ebd.png": "/LandingPage-3D-Modeling/static/media/PARK.1a936ebd.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.ec6712c7.js",
-    "static/js/2.e36252f3.chunk.js",
-    "static/js/main.47dcf0df.chunk.js"
+    "static/js/runtime-main.f8e5f911.js",
+    "static/js/2.5bdcde57.chunk.js",
+    "static/js/main.25032051.chunk.js"
   ]
 }
