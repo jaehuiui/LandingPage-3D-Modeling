@@ -1,7 +1,7 @@
-# Weebut Landing Page 🏢
+# Landing Page with 3D Modeling 🏢
 🎉 Live Demo 🎉    
     
-https://jaehuiui.github.io/Weebut-LandingPage/   
+https://jaehuiui.github.io/LandingPage-3D-Modeling/   
 
 ## Structure 
 > React, React-Redux, React-Router, React-DOM   
